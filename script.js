@@ -1,30 +1,30 @@
-let interviewList = [];
-let rejectList = [];
-
-let total = document.getElementById('total');
-let interview = document.getElementById('interview');
-let reject = document.getElementById('reject');
-
-const allBtn = document.getElementById('all-btn')
-const allInterview = document.getElementById('interview-btn')
-const allReject = document.getElementById('rejected-btn')
-
-const allCardsSection = document.getElementById('allCards');
-
-const sectionContainer = document.querySelector('section')
-console.log(sectionContainer);
+const allFilterBtn = document.getElementById('all-filter-btn')
+const interviewFilterBtn = document.getElementById('interview-filter-btn')
+const rejectFilterBtn = document.getElementById('rejected-filter-btn')
 
 
-//  Total Interview Reject Counter Function ***
 
-function totalJobs(){
-    total.innerText = allCards.children.length
-    interview.innerText = interviewList.length
-    reject.innerText = rejectList.length
 
-}
-totalJobs()
+// Toggle Button Style
+function toggleStyle(id) {
+    rejectFilterBtn.classList.remove('bg-blue-600', 'text-white')
+    interviewFilterBtn.classList.remove('bg-blue-600', 'text-white')
+    allFilterBtn.classList.remove('bg-blue-600!', 'text-white')
 
-function toggleStyle(id){
-   
-}
+    rejectFilterBtn.classList.add('bg-white', 'text-black')
+    interviewFilterBtn.classList.add('bg-white', 'text-black')
+    allFilterBtn.classList.add('bg-white', 'text-black')
+
+    const selected = document.getElementById(id)
+
+    selected.classList.remove('bg-white', 'text-black')
+    selected.classList.add('bg-blue-600', 'text-white')
+
+
+    }
+toggleStyle()
+
+
+
+
+

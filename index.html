@@ -45,13 +45,13 @@
  <section>
     <div class="flex justify-between  py-5 ">
     <div class="font-bold">Available Jobs</div>
-    <div>8 jobs</div>
+    <div id="job-count">8 jobs</div>
   </div>
 <!-- buttons -->
  <div class="py-5">
-        <button id="all-btn" onclick="toggleStyle('all-btn')" class="btn btn-primary w-18 py-5">All</button>
-        <button id="interview-btn" onclick="toggleStyle('interview-btn')" class="btn border-t-white-100">Interview</button>
-        <button id="rejected-btn" onclick="toggleStyle('rejected-btn')" class="btn border-t-white-100-">Rejected</button>
+        <button id="all-filter-btn" onclick="toggleStyle('all-filter-btn')" class="btn px-4 py-1 bg-blue-600 rounded-sm text-white">All</button>
+        <button id="interview-filter-btn" onclick="toggleStyle('interview-filter-btn')" class="btn border-t-white-100">Interview</button>
+        <button id="rejected-filter-btn" onclick="toggleStyle('rejected-filter-btn')" class="btn border-t-white-100-">Rejected</button>
  </div>
 
 <!-- No jobs available -->
@@ -74,7 +74,7 @@
     <h2 class="text-gray-950 font-bold">Mobile First Corp</h2>
     <p class="text-gray-500">React Native Developer</p>
     <p class="text-gray-500">Remote • Full-time • $130,000 - $175,000</p>
-     <h2 class="btn border-t-white-100-">NOT APPLIED</h2>
+     <button class="btn border-t-white-100-">NOT APPLIED</button>
      <p class="text-gray-800">
         Transform complex data into compelling visualizations. Required skills: 
         D3.js, React, and strong analytical thinking.
