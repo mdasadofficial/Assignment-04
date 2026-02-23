@@ -1,15 +1,3 @@
-// const rejectFilterBtn  = document.getElementById('rejected-filter-btn')
-// const interviewFilterBtn  = document.getElementById('interview-filter-btn')
-// const allFilterBtn  = document.getElementById('all-filter-btn')
-// let allCards = document.getElementById('allCards')
-// let totalCount = document.getElementById('totalCount')
-// let interviewCount = document.getElementById('interviewCount')
-// let rejectedCount = document.getElementById('rejectedCount')
-// let TotalJobs = document.getElementById('TotalJobs')
-// let interviewSection = document.getElementById('interviewSection')
-// let rejectedSection = document.getElementById('rejectedSection')
-// let interviewList = []
-// let rejectedList = []
 
 const allFilterBtn = document.getElementById('all-filter-btn')
 const interviewFilterBtn = document.getElementById('interview-filter-btn')
@@ -23,8 +11,8 @@ let rejectedList = []
 
 const allCards = document.getElementById('allCards');
 const jobCount = document.getElementById('job-count');
+
 function counter() {
-    
     totalCount.innerText = allCards.children.length
     jobCount.innerText = allCards.children.length
     interviewCount.innerText = interviewList.length
@@ -50,5 +38,42 @@ function toggleStyle(id) {
 
 
     }
-toggleStyle()
+// toggleStyle()
 
+
+
+
+document.querySelector('main').addEventListener('click', function (event) {
+    if (event.target.classList.contains('interviewClickBtn')) {
+        
+        const parent = event.target.parentNode.parentNode
+   console.log(parent,'Clicked');
+        const jobName = parent.querySelector('.jobName').innerText
+        const jobTitle = parent.querySelector('.jobTitle').innerText
+        const jobInfo = parent.querySelector('.jobInfo').innerText
+        const jobStatus = parent.querySelector('.jobStatus').innerText
+        const jobDescription = parent.querySelector('.jobDescription').innerText
+        parent.querySelector('.jobStatus').innerText = 'Interviewed'
+//   console.log(jobName,jobTitle,jobInfo,jobStatus,jobDescription);
+  
+        const cardInfo = {
+            jobName,
+            jobTitle,
+            jobInfo,
+            jobStatus: 'Interviewed',
+            jobDescription
+        }
+  console.log(cardInfo);
+        const isExist = interviewList.find(item => item.jobName === cardInfo.jobName)
+
+        if (!isExist) {
+            interviewList.push(cardInfo)
+        }
+      
+     console.log(interviewList);
+     
+        counter()
+
+    }
+  
+})
