@@ -23,19 +23,19 @@
         <div class="card bg-white-200 w-96 shadow-sm">
              <div class="card-body">
                 <h2 class="card-title">Total</h2>
-                <p class="text-xl font-bold text-black-600">8</p>
+                <p id="total" class="text-xl font-bold text-black-600">0</p>
              </div>
         </div>
         <div class="card bg-white-200 w-96 shadow-sm">
              <div class="card-body">
                 <h2 class="card-title">Interview</h2>
-                <p class="text-xl font-bold text-green-600">0</p>
+                <p id="interview" class="text-xl font-bold text-green-600">0</p>
              </div>
         </div>
         <div class="card bg-white-200 w-96 shadow-sm">
              <div class="card-body">
                 <h2 class="card-title">Reject</h2>
-                <p class="text-xl font-bold text-red-600">0</p>
+                <p id="reject" class="text-xl font-bold text-red-600">0</p>
              </div>
         </div>
     </div>
@@ -49,13 +49,13 @@
   </div>
 <!-- buttons -->
  <div class="py-5">
-        <button class="btn btn-primary w-18 py-5">All</button>
-        <button class="btn border-t-white-100">Interview</button>
-        <button class="btn border-t-white-100-">Rejected</button>
+        <button id="all-btn" onclick="toggleStyle('all-btn')" class="btn btn-primary w-18 py-5">All</button>
+        <button id="interview-btn" onclick="toggleStyle('interview-btn')" class="btn border-t-white-100">Interview</button>
+        <button id="rejected-btn" onclick="toggleStyle('rejected-btn')" class="btn border-t-white-100-">Rejected</button>
  </div>
 
 <!-- No jobs available -->
- <div class="w-full h-[350px]  space-y-4 flex flex-col justify-center items-center text-center">
+ <div id="emptyState" class="w-full h-[350px]  space-y-4 flex flex-col justify-center items-center text-center">
     <img src="./B13-A4-PH-Job-Tracker/jobs.png" alt="">
     <h3 class="text-black font-bold">No jobs available</h3>
     <p class="text-gray-500">Check back soon for new job opportunities</p>
@@ -64,7 +64,7 @@
 
 
 <!-- Card Items -->
-     <section class="space-y-4">
+     <section id="allCards" class="space-y-4">
         
          <!-- Card-1 div -->
           <!-- Mobile First Corp -->
@@ -91,8 +91,6 @@
  <div> <button class="btn btn-circle "> <i class="fa-solid fa-trash-can"></i> </button></div>
  </div>
 
- 
-<!-- Card Items -->
 
  <!-- Card-2 div -->
   <!-- WebFlow Agency -->
