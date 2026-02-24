@@ -26,6 +26,9 @@ counter()
 
 // Toggle Button Style
 function toggleStyles(id) {
+
+    console.log(id);
+    
     rejectFilterBtn.classList.remove('bg-blue-600', 'text-white')
     interviewFilterBtn.classList.remove('bg-blue-600', 'text-white')
     allFilterBtn.classList.remove('bg-blue-600!', 'text-white')
@@ -35,10 +38,26 @@ function toggleStyles(id) {
     allFilterBtn.classList.add('bg-white', 'text-black')
 
     const selected = document.getElementById(id)
+    // console.log(selected.innerText);
 
     selected.classList.remove('bg-white', 'text-black')
     selected.classList.add('bg-blue-600', 'text-white')
+    if (id === 'interview-filter-btn') {
+        allCards.classList.add('hidden')
+        interviewSection.classList.remove('hidden')
+        rejectedSection.classList.add('hidden')
+    }
+    if (id === 'all-filter-btn') {
+        allCards.classList.remove('hidden')
+        interviewSection.classList.add('hidden')
+        rejectedSection.classList.add('hidden')
+    }
+    if (id === 'rejected-filter-btn') {
+        allCards.classList.add('hidden')
+        interviewSection.classList.add('hidden')
+        rejectedSection.classList.remove('hidden')
 
+    }
 }
 
 // toggleStyles('all-filter-btn')
@@ -66,6 +85,7 @@ document.querySelector('main').addEventListener('click', function (event) {
             jobStatus: 'Interviewed',
             jobDescription
         }
+         rejectedList = rejectedList.filter(item => item.jobName != cardInfo.jobName)
         console.log(cardInfo);
         const isExist = interviewList.find(item => item.jobName === cardInfo.jobName)
 
@@ -73,14 +93,14 @@ document.querySelector('main').addEventListener('click', function (event) {
             interviewList.push(cardInfo)
         }
 
-        rejectedList = rejectedList.filter(item => item.jobName != cardInfo.jobName)
+       
 
 
         console.log(interviewList);
 
         counter()
         interviewRendering()
-
+        rejectRendering()
     }
 
 
@@ -103,18 +123,20 @@ document.querySelector('main').addEventListener('click', function (event) {
             jobStatus: 'Rejected',
             jobDescription
         }
+        interviewList = interviewList.filter(item => item.jobName != cardInfo.jobName)
         console.log(cardInfo);
         const isExist = rejectedList.find(item => item.jobName === cardInfo.jobName)
 
         if (!isExist) {
             rejectedList.push(cardInfo)
         }
-        interviewList = interviewList.filter(item => item.jobName != cardInfo.jobName)
+        
 
         console.log(rejectedList);
 
         counter()
         rejectRendering()
+        interviewRendering()
 
     }
 
@@ -166,7 +188,19 @@ function interviewRendering() {
 
 function rejectRendering() {
 
+if (rejectedList.length === 0){
+    rejectedSection.innerHTML =`
+     <div id="emptyState"
+            class=" w-full h-[350px]  space-y-4 flex flex-col justify-center items-center text-center">
+            <img src="jobs.png" alt="">
+            <h3 class="text-black font-bold">No jobs available</h3>
+            <p class="text-gray-500">Check back soon for new job opportunities</p>
 
+         </div>
+    
+    `
+    return
+}
     rejectedSection.innerHTML = ""
     for (const rejected of rejectedList) {
         console.log(rejected);
@@ -198,9 +232,7 @@ function rejectRendering() {
             </div>
         
         `
-
-
-        interviewSection.appendChild(div)
+        rejectedSection.appendChild(div)
 
     }
 }
