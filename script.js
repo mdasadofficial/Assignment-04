@@ -42,17 +42,17 @@ function toggleStyles(id) {
 
     selected.classList.remove('bg-white', 'text-black')
     selected.classList.add('bg-blue-600', 'text-white')
-    if (id === 'interview-filter-btn') {
+    if (id == 'interview-filter-btn') {
         allCards.classList.add('hidden')
         interviewSection.classList.remove('hidden')
         rejectedSection.classList.add('hidden')
     }
-    if (id === 'all-filter-btn') {
+    if (id == 'all-filter-btn') {
         allCards.classList.remove('hidden')
         interviewSection.classList.add('hidden')
         rejectedSection.classList.add('hidden')
     }
-    if (id === 'rejected-filter-btn') {
+    if (id == 'rejected-filter-btn') {
         allCards.classList.add('hidden')
         interviewSection.classList.add('hidden')
         rejectedSection.classList.remove('hidden')
@@ -190,7 +190,6 @@ function interviewRendering() {
             <div class=" myCard flex justify-between bg-slate-100 py-3 px-3 rounded-lg">
                <!-- div left -->
                <div class="space-y-2">
-                  <h2 class="text-gray-950 font-bold jobName">${interview.jobName}</h2>
                   <h2 class="text-gray-950 font-bold jobName">${interview.jobName}</h2>
                   <p class="text-gray-500 jobTitle">${interview.jobTitle}</p>
                   <p class="text-gray-500 jobInfo">${interview.jobInfo}</p>
