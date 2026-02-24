@@ -140,11 +140,36 @@ document.querySelector('main').addEventListener('click', function (event) {
 
     }
 
+
+    if (event.target.classList.contains('dlt-card-btn')){
+        // console.log('Clicked');
+        const cards = document.querySelector('.myCard')
+       cards.remove()
+       counter()
+
+    }
+
+
+
+
 })
 
 
 function interviewRendering() {
 
+if (interviewList.length === 0){
+    interviewSection.innerHTML =`
+     <div id="emptyState"
+            class=" w-full h-[350px]  space-y-4 flex flex-col justify-center items-center text-center">
+            <img src="jobs.png" alt="">
+            <h3 class="text-black font-bold">No jobs available</h3>
+            <p class="text-gray-500">Check back soon for new job opportunities</p>
+
+         </div>
+    
+    `
+    return
+}
 
     interviewSection.innerHTML = ""
     for (const interview of interviewList) {
@@ -155,7 +180,7 @@ function interviewRendering() {
         
             <!-- Card-1 div -->
             <!-- Mobile First Corp -->
-            <div class="flex justify-between bg-slate-100 py-3 px-3 rounded-lg">
+            <div class=" myCard flex justify-between bg-slate-100 py-3 px-3 rounded-lg">
                <!-- div left -->
                <div class="space-y-2">
                   <h2 class="text-gray-950 font-bold jobName">${interview.jobName}</h2>
@@ -174,7 +199,7 @@ function interviewRendering() {
                </div>
                <!-- div right -->
                <!-- Delete Button -->
-               <div> <button class="btn btn-circle "> <i class="fa-solid fa-trash-can"></i> </button></div>
+               <div> <button class="btn btn-circle "> <i class="dlt-card-btn fa-solid fa-trash-can"></i> </button></div>
             </div>
         
         `
@@ -210,7 +235,7 @@ if (rejectedList.length === 0){
         
             <!-- Card-1 div -->
             <!-- Mobile First Corp -->
-            <div class="flex justify-between bg-slate-100 py-3 px-3 rounded-lg">
+            <div class=" myCard flex justify-between bg-slate-100 py-3 px-3 rounded-lg">
                <!-- div left -->
                <div class="space-y-2">
                   <h2 class="text-gray-950 font-bold jobName">${rejected.jobName}</h2>
@@ -228,7 +253,7 @@ if (rejectedList.length === 0){
                </div>
                <!-- div right -->
                <!-- Delete Button -->
-               <div> <button class="btn btn-circle "> <i class="fa-solid fa-trash-can"></i> </button></div>
+               <div> <button class="btn btn-circle "> <i class="dlt-card-btn fa-solid fa-trash-can"></i> </button></div>
             </div>
         
         `
