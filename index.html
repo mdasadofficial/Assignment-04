@@ -49,27 +49,29 @@
       <section>
          <div class="flex justify-between  py-5 ">
             <p class="font-bold">Available Jobs</p>
-            <p ><span id="job-count">0</span> jobs</p>
+            <p><span id="job-count">0</span> jobs</p>
          </div>
          <!-- buttons -->
          <div class="py-5">
-            <button id="all-filter-btn" onclick="toggleStyle('all-filter-btn')"
+            <button id="all-filter-btn" onclick="toggleStyles('all-filter-btn')"
                class="btn px-4 py-1 bg-blue-600 rounded-sm text-white">All</button>
-            <button id="interview-filter-btn" onclick="toggleStyle('interview-filter-btn')"
+            <button id="interview-filter-btn" onclick="toggleStyles('interview-filter-btn')"
                class="btn border-t-white-100">Interview</button>
-            <button id="rejected-filter-btn" onclick="toggleStyle('rejected-filter-btn')"
+            <button id="rejected-filter-btn" onclick="toggleStyles('rejected-filter-btn')"
                class="btn border-t-white-100-">Rejected</button>
          </div>
 
          <!-- No jobs available -->
-         <div id="emptyState" class="!hidden w-full h-[350px]  space-y-4 flex flex-col justify-center items-center text-center">
-            <img src="./B13-A4-PH-Job-Tracker/jobs.png" alt="">
+         <div id="emptyState"
+            class="!hidden w-full h-[350px]  space-y-4 flex flex-col justify-center items-center text-center">
+            <img src="jobs.png" alt="">
             <h3 class="text-black font-bold">No jobs available</h3>
             <p class="text-gray-500">Check back soon for new job opportunities</p>
 
          </div>
 
-
+         <section id="interviewSection"></section>
+         <section id="rejectedSection"></section>
          <!-- Card Items -->
          <section id="allCards" class="space-y-4">
 
