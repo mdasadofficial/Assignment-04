@@ -143,7 +143,7 @@ document.querySelector('main').addEventListener('click', function (event) {
 
     if (event.target.classList.contains('dlt-card-btn')){
         // console.log('Clicked');
-        const cards = document.querySelector('.myCard')
+        const cards = event.target.closest('.myCard')
        cards.remove()
        counter()
 
